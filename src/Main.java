@@ -138,19 +138,68 @@ public class Main {
 //        store.printProducts();
 
 //        Задача 12
-
+//        PaymentSystem creditCard = new CreditCard("1234 5678 9123 4567");
+//        PaymentSystem payPal = new PayPal("qwerty@gmail.com");
+//
+//        creditCard.pay(250.0);
+//        creditCard.refund(20.0);
+//
+//        payPal.pay(300.0);
+//        payPal.refund(37.0);
 
 //        Задача 13
-
+//        ExampleClass object1 = new ExampleClass("объект1");
+//        ExampleClass object2 = new ExampleClass("объект2");
+//        ExampleClass object3 = new ExampleClass("объект3");
+//
+//        System.out.println(object1);
+//        System.out.println(object2);
+//        System.out.println(object3);
 
 //        Задача 14
-
+//        Point topLeft = new Point(1, 5);
+//        Point bottomRight = new Point(6, 2);
+//
+//        Rectangle rectangle = new Rectangle(topLeft, bottomRight);
+//
+//        System.out.println("Прямоугольник: " + rectangle);
+//        System.out.println("Площадь прямоугольника: " + rectangle.getArea());
 
 //        Задача 15
-
+//        ComplexNumber c1 = new ComplexNumber(3, 4);
+//        ComplexNumber c2 = new ComplexNumber(1, -2);
+//
+//        System.out.println("c1: " + c1);
+//        System.out.println("c2: " + c2);
+//
+//        ComplexNumber sum = c1.add(c2);
+//        System.out.println("Сумма c1 и c2: " + sum);
+//
+//        ComplexNumber difference = c1.subtract(c2);
+//        System.out.println("Разность c1 и c2: " + difference);
+//
+//        ComplexNumber product = c1.multiply(c2);
+//        System.out.println("Произведение c1 и c2: " + product);
+//
+//        ComplexNumber quotient = c1.divide(c2);
+//        System.out.println("Частное c1 и c2: " + quotient);
 
 //        Задача 16
-
+//        Matrix m1 = new Matrix(new int[][]{{1, 2}, {3, 4}});
+//        Matrix m2 = new Matrix(new int[][]{{5, 6}, {7, 8}});
+//
+//        System.out.println("Матрица m1:");
+//        System.out.println(m1);
+//        System.out.println("Матрица m2:");
+//        System.out.println(m2);
+//
+//        Matrix sum = m1.add(m2);
+//        System.out.println("Сумма m1 и m2:");
+//        System.out.println(sum);
+//
+//        Matrix product = m1.multiply(m2);
+//        System.out.println("Произведение m1 и m2:");
+//        System.out.println(product);
 
 //        Задача 17
 
@@ -603,24 +652,249 @@ public class Main {
 //}
 
 // Задача 12
-
-
+//interface PaymentSystem {
+//    void pay(double amount);
+//    void refund(double amount);
+//}
+//
+//class CreditCard implements PaymentSystem {
+//    String cardNumber;
+//
+//    CreditCard(String cardNumber) {
+//        this.cardNumber = cardNumber;
+//    }
+//
+//    @Override
+//    public void pay(double amount) {
+//        System.out.println("Оплата " + amount + " с помощью карты " + cardNumber);
+//    }
+//
+//    @Override
+//    public void refund(double amount) {
+//        System.out.println("Возврат " + amount + " на карту " + cardNumber);
+//    }
+//}
+//
+//class PayPal implements PaymentSystem {
+//    String email;
+//
+//    PayPal(String email) {
+//        this.email = email;
+//    }
+//
+//    @Override
+//    public void pay(double amount) {
+//        System.out.println("Оплата " + amount + " через PayPal с аккаунта " + email);
+//    }
+//
+//    @Override
+//    public void refund(double amount) {
+//        System.out.println("Возврат " + amount + " на аккаунт PayPal " + email);
+//    }
+//}
 
 // Задача 13
-
-
+//class UniqueID {
+//    static int lastID = 0;
+//
+//    static int generateID() {
+//        return ++lastID;
+//    }
+//}
+//
+//class ExampleClass {
+//    int id;
+//    String name;
+//
+//    ExampleClass(String name) {
+//        this.name = name;
+//        this.id = UniqueID.generateID();
+//    }
+//
+//    int getId() {
+//        return id;
+//    }
+//
+//    String getName() {
+//        return name;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "id: " + id + ", объект: " + name;
+//    }
+//}
 
 // Задача 14
-
-
+//class Point {
+//    int x, y;
+//
+//    Point(int x, int y) {
+//        this.x = x;
+//        this.y = y;
+//    }
+//
+//    int getX() {
+//        return x;
+//    }
+//
+//    int getY() {
+//        return y;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "x: " + x + ", y:" + y;
+//    }
+//}
+//
+//class Rectangle {
+//    Point topLeft;
+//    Point bottomRight;
+//
+//    Rectangle(Point topLeft, Point bottomRight) {
+//        this.topLeft = topLeft;
+//        this.bottomRight = bottomRight;
+//    }
+//
+//    int getArea() {
+//        int width = bottomRight.getX() - topLeft.getX();
+//        int height = topLeft.getY() - bottomRight.getY();
+//        return width * height;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Левая верхняя точка: " + topLeft + ", правая нижняя точка: " + bottomRight;
+//    }
+//}
 
 // Задача 15
-
-
+//class ComplexNumber {
+//    double real;
+//    double imaginary;
+//
+//    ComplexNumber(double real, double imaginary) {
+//        this.real = real;
+//        this.imaginary = imaginary;
+//    }
+//
+//    double getReal() {
+//        return real;
+//    }
+//
+//    void setReal(double real) {
+//        this.real = real;
+//    }
+//
+//    double getImaginary() {
+//        return imaginary;
+//    }
+//
+//    void setImaginary(double imaginary) {
+//        this.imaginary = imaginary;
+//    }
+//
+//    ComplexNumber add(ComplexNumber other) {
+//        double realPart = this.real + other.real;
+//        double imaginaryPart = this.imaginary + other.imaginary;
+//        return new ComplexNumber(realPart, imaginaryPart);
+//    }
+//
+//    ComplexNumber subtract(ComplexNumber other) {
+//        double realPart = this.real - other.real;
+//        double imaginaryPart = this.imaginary - other.imaginary;
+//        return new ComplexNumber(realPart, imaginaryPart);
+//    }
+//
+//    ComplexNumber multiply(ComplexNumber other) {
+//        double realPart = this.real * other.real - this.imaginary * other.imaginary;
+//        double imaginaryPart = this.real * other.imaginary + this.imaginary * other.real;
+//        return new ComplexNumber(realPart, imaginaryPart);
+//    }
+//
+//    ComplexNumber divide(ComplexNumber other) {
+//        double denominator = other.real * other.real + other.imaginary * other.imaginary;
+//        double realPart = (this.real * other.real + this.imaginary * other.imaginary) / denominator;
+//        double imaginaryPart = (this.imaginary * other.real - this.real * other.imaginary) / denominator;
+//        return new ComplexNumber(realPart, imaginaryPart);
+//    }
+//
+//    @Override
+//    public String toString() {
+//        if (imaginary >= 0) {
+//            return real + " + " + imaginary + "i";
+//        } else {
+//            return real + " - " + (-imaginary) + "i";
+//        }
+//    }
+//}
 
 // Задача 16
-
-
+//class Matrix {
+//    int rows;
+//    int cols;
+//    int[][] data;
+//
+//    Matrix(int rows, int cols) {
+//        this.rows = rows;
+//        this.cols = cols;
+//        this.data = new int[rows][cols];
+//    }
+//
+//    Matrix(int[][] data) {
+//        this.rows = data.length;
+//        this.cols = data[0].length;
+//        this.data = new int[rows][cols];
+//        for (int i = 0; i < rows; i++) {
+//            for (int j = 0; j < cols; j++) {
+//                this.data[i][j] = data[i][j];
+//            }
+//        }
+//    }
+//
+//    Matrix add(Matrix other) {
+//        if (this.rows != other.rows || this.cols != other.cols) {
+//            throw new IllegalArgumentException("Матрицы должны иметь одинаковые размеры для сложения.");
+//        }
+//
+//        Matrix result = new Matrix(rows, cols);
+//        for (int i = 0; i < rows; i++) {
+//            for (int j = 0; j < cols; j++) {
+//                result.data[i][j] = this.data[i][j] + other.data[i][j];
+//            }
+//        }
+//        return result;
+//    }
+//
+//    Matrix multiply(Matrix other) {
+//        if (this.cols != other.rows) {
+//            throw new IllegalArgumentException("Количество столбцов первой матрицы должно быть равно количеству строк второй матрицы.");
+//        }
+//
+//        Matrix result = new Matrix(this.rows, other.cols);
+//        for (int i = 0; i < this.rows; i++) {
+//            for (int j = 0; j < other.cols; j++) {
+//                for (int k = 0; k < this.cols; k++) {
+//                    result.data[i][j] += this.data[i][k] * other.data[k][j];
+//                }
+//            }
+//        }
+//        return result;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < rows; i++) {
+//            for (int j = 0; j < cols; j++) {
+//                sb.append(data[i][j]).append(" ");
+//            }
+//            sb.append("\n");
+//        }
+//        return sb.toString();
+//    }
+//}
 
 // Задача 17
 
