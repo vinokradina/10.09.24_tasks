@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -202,19 +199,62 @@ public class Main {
 //        System.out.println(product);
 
 //        Задача 17
-
+//        Weapon sword = new Weapon("Меч", 10);
+//        Weapon bow = new Weapon("Лук", 8);
+//        Player player = new Player("Герой", 100, sword);
+//        Enemy enemy = new Enemy("Злодей", 50, bow);
+//        System.out.println("Игрок: " + player);
+//        System.out.println("Враг: " + enemy);
+//
+//        player.attack(enemy);
+//        enemy.attack(player);
+//        player.attack(enemy);
+//        enemy.attack(player);
+//
+//        System.out.println("Игрок: " + player);
+//        System.out.println("Враг: " + enemy);
 
 //        Задача 18
-
+//        Product phone = new Product("Телефон", 80000.0);
+//        Product computer = new Product("Компьютер", 120000.0);
+//        Product headphones = new Product("Наушники", 5000.0);
+//
+//        Order order1 = new Order();
+//        order1.addProduct(phone);
+//        order1.addProduct(computer);
+//
+//        Order order2 = new Order();
+//        order2.addProduct(headphones);
+//        order2.addProduct(phone);
+//
+//        Customer customer = new Customer("Олег");
+//        customer.addOrder(order1);
+//        customer.addOrder(order2);
+//
+//        customer.displayOrderHistory();
 
 //        Задача 19
-
+//        Smartphone smartphone = new Smartphone("Apple");
+//        Laptop laptop = new Laptop("Huawei");
+//
+//        System.out.println(smartphone);
+//        System.out.println(laptop);
+//
+//        smartphone.turnOn();
+//        laptop.turnOn();
+//
+//        smartphone.takePhoto();
+//        laptop.runApplication("Telegram");
+//
+//        smartphone.turnOff();
+//        laptop.turnOff();
 
 //        Задача 20
+        Player player1 = new Player("Игрок 1", 'X');
+        Player player2 = new Player("Игрок 2", 'O');
 
-
-
-
+        Game game = new Game(player1, player2);
+        game.startGame();
     }
 }
 
@@ -897,18 +937,371 @@ public class Main {
 //}
 
 // Задача 17
-
-
+//class Weapon {
+//    String name;
+//    int damage;
+//
+//    Weapon(String name, int damage) {
+//        this.name = name;
+//        this.damage = damage;
+//    }
+//
+//    String getName() {
+//        return name;
+//    }
+//
+//    int getDamage() {
+//        return damage;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return name + " (урон: " + damage + ")";
+//    }
+//}
+//
+//class Enemy {
+//    String name;
+//    int health;
+//    Weapon weapon;
+//
+//    Enemy(String name, int health, Weapon weapon) {
+//        this.name = name;
+//        this.health = health;
+//        this.weapon = weapon;
+//    }
+//
+//    String getName() {
+//        return name;
+//    }
+//
+//    int getHealth() {
+//        return health;
+//    }
+//
+//    void setHealth(int health) {
+//        this.health = health;
+//    }
+//
+//    Weapon getWeapon() {
+//        return weapon;
+//    }
+//
+//    void attack(Player player) {
+//        int damage = weapon.getDamage();
+//        player.takeDamage(damage);
+//        System.out.println(name + " атакует " + player.getName() + " с помощью " + weapon.getName() + " и наносит " + damage + " урона.");
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return name + " (здоровье: " + health + ", оружие: " + weapon + ")";
+//    }
+//}
+//
+//class Player {
+//    String name;
+//    int health;
+//    Weapon weapon;
+//
+//    Player(String name, int health, Weapon weapon) {
+//        this.name = name;
+//        this.health = health;
+//        this.weapon = weapon;
+//    }
+//
+//    String getName() {
+//        return name;
+//    }
+//
+//    int getHealth() {
+//        return health;
+//    }
+//
+//    void setHealth(int health) {
+//        this.health = health;
+//    }
+//
+//    Weapon getWeapon() {
+//        return weapon;
+//    }
+//
+//    void takeDamage(int damage) {
+//        health -= damage;
+//        if (health < 0) {
+//            health = 0;
+//        }
+//        System.out.println(name + " получает " + damage + " урона. Текущее здоровье: " + health);
+//    }
+//
+//    void attack(Enemy enemy) {
+//        int damage = weapon.getDamage();
+//        enemy.setHealth(enemy.getHealth() - damage);
+//        System.out.println(name + " атакует " + enemy.getName() + " с помощью " + weapon.getName() + " и наносит " + damage + " урона.");
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return name + " (здоровье: " + health + ", оружие: " + weapon + ")";
+//    }
+//}
 
 // Задача 18
-
-
+//class Product {
+//    String name;
+//    double price;
+//
+//    Product(String name, double price) {
+//        this.name = name;
+//        this.price = price;
+//    }
+//
+//    String getName() {
+//        return name;
+//    }
+//
+//    double getPrice() {
+//        return price;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return name + " (цена: " + price + ")";
+//    }
+//}
+//
+//class Order {
+//    static int orderCounter = 0;
+//    int orderId;
+//    List<Product> products;
+//
+//    Order() {
+//        this.orderId = ++orderCounter;
+//        this.products = new ArrayList<>();
+//    }
+//
+//    void addProduct(Product product) {
+//        products.add(product);
+//    }
+//
+//    double getTotalCost() {
+//        double totalCost = 0;
+//        for (Product product : products) {
+//            totalCost += product.getPrice();
+//        }
+//        return totalCost;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("Заказ #").append(orderId).append(":\n");
+//        for (Product product : products) {
+//            sb.append("- ").append(product).append("\n");
+//        }
+//        sb.append("Общая стоимость: ").append(getTotalCost()).append("\n");
+//        return sb.toString();
+//    }
+//}
+//
+//class Customer {
+//    String name;
+//    List<Order> orders;
+//
+//    Customer(String name) {
+//        this.name = name;
+//        this.orders = new ArrayList<>();
+//    }
+//
+//    void addOrder(Order order) {
+//        orders.add(order);
+//    }
+//
+//    void displayOrderHistory() {
+//        System.out.println("История заказов покупателя " + name + ":");
+//        for (Order order : orders) {
+//            System.out.println(order);
+//        }
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return name;
+//    }
+//}
 
 // Задача 19
-
-
+//class Device {
+//    protected String brand;
+//
+//    Device(String brand) {
+//        this.brand = brand;
+//    }
+//
+//    void turnOn() {
+//        System.out.println(brand + " устройство включено.");
+//    }
+//
+//    void turnOff() {
+//        System.out.println(brand + " устройство выключено.");
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Устройство бренда " + brand;
+//    }
+//}
+//
+//class Smartphone extends Device {
+//    Smartphone(String brand) {
+//        super(brand);
+//    }
+//
+//    void takePhoto() {
+//        System.out.println(brand + " смартфон делает фото.");
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Смартфон бренда " + brand;
+//    }
+//}
+//
+//class Laptop extends Device {
+//    public Laptop(String brand) {
+//        super(brand);
+//    }
+//
+//    void runApplication(String appName) {
+//        System.out.println(brand + " ноутбук запускает приложение " + appName + ".");
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Ноутбук бренда " + brand;
+//    }
+//}
 
 // Задача 20
+class Player {
+    String name;
+    char symbol;
 
+    Player(String name, char symbol) {
+        this.name = name;
+        this.symbol = symbol;
+    }
+
+    String getName() {
+        return name;
+    }
+
+    char getSymbol() {
+        return symbol;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + symbol + ")";
+    }
+}
+
+class Game {
+    char[][] board;
+    Player player1;
+    Player player2;
+    Player currentPlayer;
+    Scanner scanner;
+
+    Game(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.currentPlayer = player1;
+        this.board = new char[3][3];
+        this.scanner = new Scanner(System.in);
+        initializeBoard();
+    }
+
+    void initializeBoard() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = '-';
+            }
+        }
+    }
+
+    void displayBoard() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    boolean checkWin(Player player) {
+        char symbol = player.getSymbol();
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == symbol && board[i][1] == symbol && board[i][2] == symbol) {
+                return true;
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (board[0][i] == symbol && board[1][i] == symbol && board[2][i] == symbol) {
+                return true;
+            }
+        }
+        if (board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol) {
+            return true;
+        }
+        if (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol) {
+            return true;
+        }
+        return false;
+    }
+
+    boolean isBoardFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == '-') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    void makeMove(Player player) {
+        int row, col;
+        do {
+            System.out.println(player.getName() + ", введите номер строки (0-2):");
+            row = scanner.nextInt();
+            System.out.println(player.getName() + ", введите номер столбца (0-2):");
+            col = scanner.nextInt();
+        } while (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != '-');
+
+        board[row][col] = player.getSymbol();
+    }
+
+    void startGame() {
+        System.out.println("Игра началась!");
+        while (true) {
+            displayBoard();
+            makeMove(currentPlayer);
+            if (checkWin(currentPlayer)) {
+                displayBoard();
+                System.out.println(currentPlayer.getName() + " выиграл!");
+                break;
+            }
+            if (isBoardFull()) {
+                displayBoard();
+                System.out.println("Ничья!");
+                break;
+            }
+            currentPlayer = (currentPlayer == player1) ? player2 : player1;
+        }
+        scanner.close();
+    }
+}
 
 
